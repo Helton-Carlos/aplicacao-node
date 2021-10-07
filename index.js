@@ -8,7 +8,24 @@ const chalk = require('chalk')
 const fs = require('fs')
 
 function trataErro(erro){
-    throw new Error(chalk.red(erro));
+    throw new Error(chalk.red(erro.code,'erro provisório'));
+}
+
+function pegarArquivo(caminhoDoArquivo){
+    const encoding = 'utf-8';
+    fs.promises
+    .readFile(caminhoDoArquivo, encoding)
+    .then((texto)=>chalk.green(console.log(texto)))
+    .catch((erro)=>trataErro)
+}
+
+pegaArquivo('./arquivo/texto.md')
+/*
+const chalk = require('chalk')
+const fs = require('fs')
+
+function trataErro(erro){
+    throw new Error(chalk.red(erro.code,'erro provisorio'));
 }
 
 function pegaArquivo(caminhoDoArquivo){
@@ -21,4 +38,4 @@ function pegaArquivo(caminhoDoArquivo){
     })
 }
 
-pegaArquivo('./arquivo/texto.md')
+pegaArquivo('./arquivo/texto.md')*/
