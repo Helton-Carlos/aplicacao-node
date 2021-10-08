@@ -34,7 +34,7 @@ function pegaArquivo(caminhoDoArquivo){
         console.log(chalk.green(data))
     })
 }
-pegaArquivo('./arquivo/texto.md')*/
+pegaArquivo('./arquivo/texto.md')
 
 const chalk = require("chalk");
 const fs = require('fs');
@@ -46,5 +46,15 @@ async function pegaArquivo(caminhoDoArquivo){
   try{
     const texto = await fs.promises.readFile(caminhoDoArquivo,encoding);
     console.log(chalk.green(texto))
+  }catch(erro){
+      trataErro(erro)
   }
+}*/
+
+var nome ="Helton";
+
+function soma(a,b){
+    return a-b
 }
+
+export default{soma,nome};
