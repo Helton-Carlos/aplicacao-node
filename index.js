@@ -49,12 +49,24 @@ async function pegaArquivo(caminhoDoArquivo){
   }catch(erro){
       trataErro(erro)
   }
-}*/
+}
 
 var nome ="Helton";
 
 function soma(a,b){
     return a-b
 }
+export default{soma,nome};*/
 
-export default{soma,nome};
+import {promises as fs} from "fs";
+init();
+async function init() {
+  try {
+    await fs.writeFile("texto.txt", "items1.2.3");
+    await fs.appendFile("texto.txt", "\ntexto apend file");
+    const data = await fs.readFile("texto.txt", "utf-8");
+    console.log(data);
+  } catch (err) {
+    console.log(err);
+  }
+}
