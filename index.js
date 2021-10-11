@@ -57,7 +57,7 @@ function soma(a,b){
     return a-b
 }
 export default{soma,nome};*/
-
+/*
 import {promises as fs} from "fs";
 init();
 async function init() {
@@ -70,3 +70,11 @@ async function init() {
     console.log(err);
   }
 }
+*/
+
+import http from "http"
+http.createServer((req,res)=>{
+    res.write("Heltinho Brito");
+    res.statusCode=200;
+    res.end()
+}).listen(8000);
