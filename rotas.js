@@ -16,6 +16,10 @@ app.get("/one*Blue",(req,res)=>{
     res.send(req.path)
 })
 
+app.post("/test(ing)?",(req,res)=>{
+    res.send("/test(ing)?")
+})
+
 app.listen(3000,()=>{
     console.log("rotas enviadas")
 })
