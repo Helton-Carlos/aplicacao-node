@@ -20,6 +20,24 @@ app.post("/test(ing)?",(req,res)=>{
     res.send("/test(ing)?")
 })
 
+
+app.get("/testQuery",(req,res)=>{
+    res.send(req.query)
+})
+
+//rotas
+
+app.route("/testRoute")
+    .get((req,res)=>{
+        res.send("/testRoute GET")
+    })
+    .post((req,res)=>{
+        res.send("/testRoute POST")
+    })
+    .delete((req,res)=>{
+        res.send("/testRoute DELETE")
+    })
+
 app.listen(3000,()=>{
     console.log("rotas enviadas")
 })
