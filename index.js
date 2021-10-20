@@ -1,17 +1,17 @@
-import express  from "express";
-const app = express()
+import express from "express";
+const app = express();
+app.use(express.json());
 
-app.use(express.json())
-app.use("/carros", carroRouter);
-app.use((req,res,next)=>{
-    console.log(new Date())
-    next();
-})
+app.get("/", (res, req) => {
+  throw new Error("Erro menssagem teste");
+  next();
+});
 
-app.get("/teste",(req,res)=>{
-    res.end()
-})
+app.use((err, req, res, next) => {
+  console.log("Erro 1");
+  res.status(500).send("Ocorreu um erro geral");
+});
 
-app.listen(3000,()=>{
-    console.log("API Started")
-})
+app.listen(3000, () => {
+  console.log("API started");
+});
